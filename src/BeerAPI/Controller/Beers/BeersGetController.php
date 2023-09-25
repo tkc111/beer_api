@@ -10,6 +10,11 @@ final class BeersGetController extends AbstractController
 {
     public function __invoke( string $id, BeerGetter $beerGetter, RequestResponse $requestResponse )
     {
-        return $requestResponse->outPut( 200, $beerGetter->__invoke( $id )->toPrimitives() );
+        try {
+            return $requestResponse->outPut( 200, $beerGetter->__invoke( $id )->toPrimitives() );
+        }
+        catch (\Exception $e) {
+            return $requestResponse->outPut( $e->getCode(), ['error-api' => $e->getMessage()] );
+        }
     }
 }

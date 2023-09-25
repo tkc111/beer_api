@@ -11,7 +11,7 @@ final class Beer
     private $description;
     private $image;
 
-    public function __construct(string $id, string $name, string $tagline, string $first_brewed, string $description, string $image)
+    public function __construct(string $id, string $name, string $tagline, string $first_brewed, string $description, string $image = null)
     {
         $this->id           = $id;
         $this->name         = $name;

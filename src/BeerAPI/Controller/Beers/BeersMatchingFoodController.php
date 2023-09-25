@@ -11,7 +11,11 @@ final class BeersMatchingFoodController extends AbstractController
 
     public function __invoke( string $criteria, MatchingFoodSearcher $searcher, RequestResponse $requestResponse )
     {
-        return $requestResponse->outPut( 200,  $searcher->search( $criteria ) );
-
+        try {
+            return $requestResponse->outPut( 200,  $searcher->search( $criteria ) );
+        }
+        catch (\Exception $e) {
+            return $requestResponse->outPut( $e->getCode(), ['error-api' => $e->getMessage()] );
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Shared\Infrastructure\Symfony;
 
+use App\Shared\Infrastructure\Output\HttpClientResponse;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class ApiHttpClient
@@ -13,13 +14,9 @@ class ApiHttpClient
         $this->client = $client;
     }
 
-    public function fetch( $uri ): array
+    public function fetch( $uri ): HttpClientResponse
     {
         $response = $this->client->request( 'GET', $uri );
-
-        $statusCode = $response->getStatusCode();
-        // $statusCode = 200
-
-        return $response->toArray();
+        return new HttpClientResponse( $response->getStatusCode(), $response->toArray() );
     }
 }
