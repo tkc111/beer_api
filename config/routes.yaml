@@ -1,3 +1,14 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+health-check_get:
+  path: /health-check
+  controller: App\BeerAPI\Controller\HealthCheck\HealthCheckGetController
+  methods:  [GET]
+
+beers_get:
+  path: /beers/{id}
+  controller: App\BeerAPI\Controller\Beers\BeersGetController
+  methods:  [GET]
+
+beers_matching_food:
+  path: /beers-matching-food/{criteria}
+  controller: App\BeerAPI\Controller\Beers\BeersMatchingFoodController
+  methods: [ GET ]

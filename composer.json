@@ -1,20 +1,20 @@
 {
+    "license": "MIT",
     "type": "project",
-    "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "lambdish/phunctional": "^2.1",
         "symfony/console": "5.4.*",
         "symfony/dotenv": "5.4.*",
         "symfony/flex": "^1.17|^2",
         "symfony/framework-bundle": "5.4.*",
+        "symfony/http-client": "5.4.*",
         "symfony/runtime": "5.4.*",
         "symfony/yaml": "5.4.*"
-    },
-    "require-dev": {
     },
     "config": {
         "allow-plugins": {
@@ -44,18 +44,6 @@
         "symfony/polyfill-iconv": "*",
         "symfony/polyfill-php72": "*"
     },
-    "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
-    },
     "conflict": {
         "symfony/symfony": "*"
     },
@@ -64,5 +52,7 @@
             "allow-contrib": false,
             "require": "5.4.*"
         }
+    },
+    "require-dev": {
     }
 }

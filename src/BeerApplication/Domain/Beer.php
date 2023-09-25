@@ -1,6 +1,6 @@
 <?php
 
-namespace BeerAPI\Domain;
+namespace App\BeerApplication\Domain;
 
 final class Beer
 {
@@ -29,18 +29,18 @@ final class Beer
             'tagline'       => $this->tagline,
             'first_brewed'  => $this->first_brewed,
             'description'   => $this->description,
-            'image'         => $this->image,
+            'image_url'     => $this->image,
         ];
     }
 
-    public static function fromPrimitives(array $primitives): Beer
+    public static function fromPrimitives( array $primitives ): Beer
     {
         return new self(    $primitives['id'],
                             $primitives['name'],
                             $primitives['tagline'],
                             $primitives['first_brewed'],
                             $primitives['description'],
-                            $primitives['image']
+                            $primitives['image_url']
                         );
     }
 

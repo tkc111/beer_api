@@ -1,6 +1,6 @@
 <?php
 
-namespace BeerAPI\Domain;
+namespace App\BeerApplication\Domain;
 
 use BeerAPI\Application\BeerResponse;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
